@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-//Õ½Ê¿»ùÀà
+//æˆ˜å£«åŸºç±»
 class Soldier
 {
 public:
@@ -18,18 +18,18 @@ protected:
 	string m_Name = string();
 };
 
-//ºÚºú×Ó
+//é»‘èƒ¡å­
 class Teach : public Soldier
 {
 public:
 	using Soldier::Soldier;
 	void fight() override
 	{
-		cout << m_Name << "ÌåÊõÕ½¶·" << endl;
+		cout << m_Name << "ä½“æœ¯æˆ˜æ–—" << endl;
 	}
 };
 
-//¶ñÄ§¹ûÊµ»ùÀà
+//æ¶é­”æœå®åŸºç±»
 class DevilFruit : public Soldier
 {
 public:
@@ -42,54 +42,54 @@ protected:
 	Soldier* m_soldier = nullptr;
 };
 
-//°µ°µ¹ûÊµ
+//æš—æš—æœå®
 class DarkFruit : public DevilFruit
 {
 public:
 	void fight() override
 	{
 		m_soldier->fight();
-		//Ê¹ÓÃ¶ñÄ§¹ûÊµÄÜÁ¦Õ½¶·
+		//ä½¿ç”¨æ¶é­”æœå®èƒ½åŠ›æˆ˜æ–—
 		cout << m_soldier->getName()
-			<< "³ÔÁË°µ°µ¹ûÊµ£¬¿ÉÒÔÓµÓĞºÚ¶´Ò»ÑùµÄÎüÒıÁ¦" << endl;
+			<< "åƒäº†æš—æš—æœå®ï¼Œå¯ä»¥æ‹¥æœ‰é»‘æ´ä¸€æ ·çš„å¸å¼•åŠ›" << endl;
 		warning();
 	}
 private:
 	void warning()
 	{
 		cout << m_soldier->getName()
-			<< "×¢Òâ£º³ÔÁË°µ°µ¹ûÊµ£¬ÉíÌåÔªËØ»¯Ö®ºó²»»á¶ã±Ü¹¥»÷£¬»áÎüÊÕÉÏº£" << endl;
+			<< "æ³¨æ„ï¼šåƒäº†æš—æš—æœå®ï¼Œèº«ä½“å…ƒç´ åŒ–ä¹‹åä¸ä¼šèº²é¿æ”»å‡»ï¼Œä¼šå¸æ”¶ä¸Šæµ·" << endl;
 	}
 };
-//ÕğÕğ¹ûÊµ
+//éœ‡éœ‡æœå®
 class QuakeFruit : public DevilFruit
 {
 public:
 	void fight() override
 	{
 		m_soldier->fight();
-		//Ê¹ÓÃ¶ñÄ§¹ûÊµÄÜÁ¦Õ½¶·
+		//ä½¿ç”¨æ¶é­”æœå®èƒ½åŠ›æˆ˜æ–—
 		cout << m_soldier->getName()
-			<< "³ÔÁËÕğÕğ¹ûÊµ£¬¿ÉÒÔÔÚÈÎÒâ¿Õ¼äÒı·¢Õğ¶¯£¡" << endl;
+			<< "åƒäº†éœ‡éœ‡æœå®ï¼Œå¯ä»¥åœ¨ä»»æ„ç©ºé—´å¼•å‘éœ‡åŠ¨ï¼" << endl;
 	}
 
 };
 
-//´ó±û¹ûÊµ
+//å¤§ä¸™æœå®
 class PieFruit : public DevilFruit
 {
 public:
 	void fight() override
 	{
 		m_soldier->fight();
-		//Ê¹ÓÃ¶ñÄ§¹ûÊµÄÜÁ¦Õ½¶·
+		//ä½¿ç”¨æ¶é­”æœå®èƒ½åŠ›æˆ˜æ–—
 		cout << m_soldier->getName()
-			<< "³ÔÁË´ó±û¹ûÊµ£¬»ñµÃ´ó±ûîø¼×£¡" << endl;
+			<< "åƒäº†å¤§ä¸™æœå®ï¼Œè·å¾—å¤§ä¸™é“ ç”²ï¼" << endl;
 		ability();
 	}
 	void ability()
 	{
-		cout << "×îÇ¿¸´ÖÆ£¬¿ÉÒÔ½«Éí±ßÊÂÎï±ä³É´ó±ı£¬°ïÖú¶ÓÓÑ»ØÑª" << endl;
+		cout << "æœ€å¼ºå¤åˆ¶ï¼Œå¯ä»¥å°†èº«è¾¹äº‹ç‰©å˜æˆå¤§é¥¼ï¼Œå¸®åŠ©é˜Ÿå‹å›è¡€" << endl;
 	}
 
 };
@@ -97,15 +97,15 @@ public:
 
 int main7()
 {
-	Soldier* soldier = new Teach("ºÚºú×Ó");
+	Soldier* soldier = new Teach("é»‘èƒ¡å­");
 	DevilFruit* dark = new DarkFruit;
 	DevilFruit* quake = new QuakeFruit;
 	DevilFruit* pie = new PieFruit;
-	//Í¨¹ı°µ°µ¹ûÊµÈ¥×°ÊÎºÚºú×Ó
+	//é€šè¿‡æš—æš—æœå®å»è£…é¥°é»‘èƒ¡å­
 	dark->enchantment(soldier);
-	//Í¨¹ıÕğÕğ¹ûÊµÈ¥×°ÊÎºÚºú×Ó
+	//é€šè¿‡éœ‡éœ‡æœå®å»è£…é¥°é»‘èƒ¡å­
 	quake->enchantment(dark);
-	//Í¨¹ı´ó±û¹ûÊµÈ¥×°ÊÎºÚºú×Ó
+	//é€šè¿‡å¤§ä¸™æœå®å»è£…é¥°é»‘èƒ¡å­
 	pie->enchantment(quake);
 	pie->fight();
 

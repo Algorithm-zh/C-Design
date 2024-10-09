@@ -1,48 +1,48 @@
 #include<iostream>
 using namespace std;
-// ³éÏó»úÆ÷ÈËÀà
+// æŠ½è±¡æœºå™¨äººç±»
 class AbstractRobot
 {
 public:
-    // ÎäÆ÷
+    // æ­¦å™¨
     virtual void weapon() = 0;
-    // Íâ¹Û
+    // å¤–è§‚
     virtual void appearance() = 0;
-    // Õ½¶·ÄÜÁ¦
+    // æˆ˜æ–—èƒ½åŠ›
     virtual void fightAbility() = 0;
-    // Ãû×Ö
+    // åå­—
     virtual string getName() = 0;
-    // ×ÔÓúÄÜÁ¦
+    // è‡ªæ„ˆèƒ½åŠ›
     virtual void selfHealing() {};
-    // ÊÇ·ñÄÜ·É
+    // æ˜¯å¦èƒ½é£
     virtual bool canFlying()
     {
         return false;
     }
-    // ÊÇ·ñÊÇ×Ô¶¯¿ØÖÆ
+    // æ˜¯å¦æ˜¯è‡ªåŠ¨æ§åˆ¶
     virtual bool isAuto()
     {
         return true;
     }
-    // µÃµ½»úÆ÷ÈËÊôĞÔ
+    // å¾—åˆ°æœºå™¨äººå±æ€§
     virtual void getProperty()
     {
-        cout << "±´¼ÓÅÓ¿ËÖÆÔìµÄ" << getName() << "ÓĞÒÔÏÂÊôĞÔ: " << endl;
+        cout << "è´åŠ åºå…‹åˆ¶é€ çš„" << getName() << "æœ‰ä»¥ä¸‹å±æ€§: " << endl;
         if (canFlying())
         {
-            cout << "ÓĞ·ÉĞĞÄÜÁ¦!" << endl;
+            cout << "æœ‰é£è¡Œèƒ½åŠ›!" << endl;
         }
         else
         {
-            cout << "Ã»ÓĞ·ÉĞĞÄÜÁ¦!" << endl;
+            cout << "æ²¡æœ‰é£è¡Œèƒ½åŠ›!" << endl;
         }
         if (isAuto())
         {
-            cout << "¿ÉÒÔ×Ô¶¯¿ØÖÆ, ÍêÈ«Ìå»úÆ÷ÈË!" << endl;
+            cout << "å¯ä»¥è‡ªåŠ¨æ§åˆ¶, å®Œå…¨ä½“æœºå™¨äºº!" << endl;
         }
         else
         {
-            cout << "²»ÄÜ×Ô¶¯¿ØÖÆ, °ë×Ô¶¯»úÆ÷ÈË!" << endl;
+            cout << "ä¸èƒ½è‡ªåŠ¨æ§åˆ¶, åŠè‡ªåŠ¨æœºå™¨äºº!" << endl;
         }
         weapon();
         appearance();
@@ -50,63 +50,63 @@ public:
         selfHealing();
     }
 };
-// ºÍÆ½Ö÷ÒåÕß
+// å’Œå¹³ä¸»ä¹‰è€…
 class Pacifist : public AbstractRobot
 {
 public:
-    // ÎäÆ÷
+    // æ­¦å™¨
     void weapon() override
     {
-        cout << "¿ÉÒÔ·¢ÉäÀØÉä¹â..." << endl;
+        cout << "å¯ä»¥å‘å°„é•­å°„å…‰..." << endl;
     }
-    // Íâ¹Û
+    // å¤–è§‚
     void appearance() override
     {
-        cout << "Íâ²¿ºÍ°ÍË÷ÂŞÃ×¡¤ĞÜÒ»Ñù, ÌåĞÍÅÓ´ó£¬ÓµÓĞ³Ê°ëÔ²ĞÎµÄ¶ú¶ä£¬ÄÚ²¿ËÆºõ½ğÊô¡£" << endl;
+        cout << "å¤–éƒ¨å’Œå·´ç´¢ç½—ç±³Â·ç†Šä¸€æ ·, ä½“å‹åºå¤§ï¼Œæ‹¥æœ‰å‘ˆåŠåœ†å½¢çš„è€³æœµï¼Œå†…éƒ¨ä¼¼ä¹é‡‘å±ã€‚" << endl;
     }
-    // ÄÜÁ¦
+    // èƒ½åŠ›
     void fightAbility() override
     {
-        cout << "½áÊµ¿¹×á, ¿ÉÒÔÍ¨¹ıÊÖ²¿»òÕß×ì²¿·¢ÉäÀØÉä¼¤¹â, ¿ÉÒÔÈÚ»¯¸ÖÌú!!!" << endl;
+        cout << "ç»“å®æŠ—æ, å¯ä»¥é€šè¿‡æ‰‹éƒ¨æˆ–è€…å˜´éƒ¨å‘å°„é•­å°„æ¿€å…‰, å¯ä»¥èåŒ–é’¢é“!!!" << endl;
     }
     string getName() override
     {
-        return "ºÍÆ½Ö÷ÒåÕß";
+        return "å’Œå¹³ä¸»ä¹‰è€…";
     }
 };
 
-// ³ãÌìÊ¹
+// ç‚½å¤©ä½¿
 class Seraphim : public AbstractRobot
 {
 public:
-    // ÎäÆ÷
+    // æ­¦å™¨
     void weapon() override
     {
-        cout << "¿ÉÒÔ·¢ÉäÀØÉä¼¤¹â, Ó¥ÑÛÍâĞÎµÄ³ãÌìÊ¹Ğ¯´øÕßÒ»°Ñ¾Ş½£, ¿ÉÒÔÕ¶¶ÏÒ»ÇĞ!!!" << endl;
+        cout << "å¯ä»¥å‘å°„é•­å°„æ¿€å…‰, é¹°çœ¼å¤–å½¢çš„ç‚½å¤©ä½¿æºå¸¦è€…ä¸€æŠŠå·¨å‰‘, å¯ä»¥æ–©æ–­ä¸€åˆ‡!!!" << endl;
     }
-    // Íâ¹Û
+    // å¤–è§‚
     void appearance() override
     {
-        cout << "Íâ¹ÛºÍÆßÎäº£Ğ¡Ê±ºòµÄÍâĞÎÒ»Ñù, ²¢ÇÒÓµÓĞÒ»¶ÔºÍ½ıÒ»ÑùµÄ³á°ò!!!" << endl;
+        cout << "å¤–è§‚å’Œä¸ƒæ­¦æµ·å°æ—¶å€™çš„å¤–å½¢ä¸€æ ·, å¹¶ä¸”æ‹¥æœ‰ä¸€å¯¹å’Œçƒ¬ä¸€æ ·çš„ç¿…è†€!!!" << endl;
     }
-    // ÄÜÁ¦
+    // èƒ½åŠ›
     void fightAbility() override
     {
-        cout << "²»½ö¿ÉÒÔ·¢ÉäÀØÉä¼¤¹â, »¹ÓµÓĞÆßÎäº£µÄÄÜÁ¦, Å£±Æplus, ÎŞµĞÁË!!!!" << endl;
+        cout << "ä¸ä»…å¯ä»¥å‘å°„é•­å°„æ¿€å…‰, è¿˜æ‹¥æœ‰ä¸ƒæ­¦æµ·çš„èƒ½åŠ›, ç‰›é€¼plus, æ— æ•Œäº†!!!!" << endl;
     }
-    // ×ÔÓúÄÜÁ¦
+    // è‡ªæ„ˆèƒ½åŠ›
     void selfHealing() override
     {
-        cout << "·Ç³£ºñÊµ¿¹×á, ²¢ÇÒÓµÓĞ·Ç³£Ç¿µÄ×ÔÓúÄÜÁ¦, ¿ª¹ÒÁË!!!" << endl;
+        cout << "éå¸¸åšå®æŠ—æ, å¹¶ä¸”æ‹¥æœ‰éå¸¸å¼ºçš„è‡ªæ„ˆèƒ½åŠ›, å¼€æŒ‚äº†!!!" << endl;
     }
-    // ÊÇ·ñÄÜ·É
+    // æ˜¯å¦èƒ½é£
     bool canFlying() override
     {
         return true;
     }
     string getName() override
     {
-        return "³ãÌìÊ¹";
+        return "ç‚½å¤©ä½¿";
     }
 };
 

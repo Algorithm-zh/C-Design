@@ -6,20 +6,20 @@
 using namespace std;
 
 /*
-ÔÚÒ»¸öÏîÄ¿ÖĞ£¬È«¾Ö·¶Î§ÄÚ£¬Ä³¸öÀàµÄÊµÀıÓĞÇÒ½öÓĞÒ»¸ö£¬
-Í¨¹ıÕâ¸öÎ¨Ò»ÊµÀıÏòÆäËûÄ£¿éÌá¹©Êı¾İµÄÈ«¾Ö·ÃÎÊ£¬
-ÕâÖÖÄ£Ê½¾Í½Ğµ¥ÀıÄ£Ê½¡£
+åœ¨ä¸€ä¸ªé¡¹ç›®ä¸­ï¼Œå…¨å±€èŒƒå›´å†…ï¼ŒæŸä¸ªç±»çš„å®ä¾‹æœ‰ä¸”ä»…æœ‰ä¸€ä¸ªï¼Œ
+é€šè¿‡è¿™ä¸ªå”¯ä¸€å®ä¾‹å‘å…¶ä»–æ¨¡å—æä¾›æ•°æ®çš„å…¨å±€è®¿é—®ï¼Œ
+è¿™ç§æ¨¡å¼å°±å«å•ä¾‹æ¨¡å¼ã€‚
 */
 
-//¶¨ÒåÒ»¸öµ¥ÀıÄ£Ê½µÄÈÎÎñ¶ÓÁĞ
-//²»ÒªÈÃÀàµÄÍâÃæÈ¥µ÷ÓÃÀàµÄ¹¹Ôìº¯Êı
-//¶öººÄ£Ê½--->¶¨ÒåÀàµÄÊ±ºò´´½¨µ¥Àı¶ÔÏó
-//ÔÚ¶àÏß³ÌµÄ³¡¾°ÏÂÃ»ÓĞÏß³Ì°²È«ÎÊÌâ£¬¶àÏß³Ì¿ÉÒÔÍ¬Ê±·ÃÎÊµ¥Àı¶ÔÏó
+//å®šä¹‰ä¸€ä¸ªå•ä¾‹æ¨¡å¼çš„ä»»åŠ¡é˜Ÿåˆ—
+//ä¸è¦è®©ç±»çš„å¤–é¢å»è°ƒç”¨ç±»çš„æ„é€ å‡½æ•°
+//é¥¿æ±‰æ¨¡å¼--->å®šä¹‰ç±»çš„æ—¶å€™åˆ›å»ºå•ä¾‹å¯¹è±¡
+//åœ¨å¤šçº¿ç¨‹çš„åœºæ™¯ä¸‹æ²¡æœ‰çº¿ç¨‹å®‰å…¨é—®é¢˜ï¼Œå¤šçº¿ç¨‹å¯ä»¥åŒæ—¶è®¿é—®å•ä¾‹å¯¹è±¡
 #if 0
 class TaskQueue
 {
 public:
-	//TaskQueue() = delete;//1.deleteÖ±½Ó½«ÆäÉ¾³ı
+	//TaskQueue() = delete;//1.deleteç›´æ¥å°†å…¶åˆ é™¤
 	TaskQueue(const TaskQueue& t) = delete;
 	TaskQueue& operator = (const TaskQueue& t) = delete;
 	static TaskQueue* getInstance()
@@ -28,44 +28,43 @@ public:
 	}
 	void print()
 	{
-		cout << "µ¥Àı¶ÔÏóµÄ³ÉÔ±º¯Êı" << endl;
+		cout << "å•ä¾‹å¯¹è±¡çš„æˆå‘˜å‡½æ•°" << endl;
 	}
 
 private:
-	//2.½«¿ÉÒÔ²úÉú¶à¸öÊµÀıµÄ¹¹Ôìº¯ÊıÈ¨ÏŞÉèÎªË½ÓĞ
-	TaskQueue() = default;//default¾ÍÊÇÉèÖÃÎªÄ¬ÈÏĞĞÎª
+	//2.å°†å¯ä»¥äº§ç”Ÿå¤šä¸ªå®ä¾‹çš„æ„é€ å‡½æ•°æƒé™è®¾ä¸ºç§æœ‰
+	TaskQueue() = default;//defaultå°±æ˜¯è®¾ç½®ä¸ºé»˜è®¤è¡Œä¸º
 	//TaskQueue(const TaskQueue& t) = default;
 	//TaskQueue& operator = (const TaskQueue& t) = default;
-	//Ö»ÄÜÍ¨¹ıÀàÃû·ÃÎÊ¾²Ì¬ÊôĞÔ»ò·½·¨
-	static TaskQueue* m_taskQ;//¾²Ì¬±äÁ¿£¬Î¨Ò»µÄ£¬ÊôÓÚÀà
+	//åªèƒ½é€šè¿‡ç±»åè®¿é—®é™æ€å±æ€§æˆ–æ–¹æ³•
+	static TaskQueue* m_taskQ;//é™æ€å˜é‡ï¼Œå”¯ä¸€çš„ï¼Œå±äºç±»
 };
-//¶Ôµ¥ÀıµÄ¶ÔÏó½øĞĞ³õÊ¼»¯
+//å¯¹å•ä¾‹çš„å¯¹è±¡è¿›è¡Œåˆå§‹åŒ–
 TaskQueue* TaskQueue::m_taskQ = new TaskQueue;
 #endif
 
-
-//ÀÁººÄ£Ê½-->Ê²Ã´Ê±ºòÊ¹ÓÃÕâ¸öµ¥Àı¶ÔÏó£¬ÔÚÊ¹ÓÃµÄÊ±ºòÔÙÈ¥´´½¨¶ÔÓ¦µÄÊµÀı
+//æ‡’æ±‰æ¨¡å¼-->ä»€ä¹ˆæ—¶å€™ä½¿ç”¨è¿™ä¸ªå•ä¾‹å¯¹è±¡ï¼Œåœ¨ä½¿ç”¨çš„æ—¶å€™å†å»åˆ›å»ºå¯¹åº”çš„å®ä¾‹
 #if 0
 class TaskQueue
 {
 public:
-	//TaskQueue() = delete;//1.deleteÖ±½Ó½«ÆäÉ¾³ı
+	//TaskQueue() = delete;//1.deleteç›´æ¥å°†å…¶åˆ é™¤
 	TaskQueue(const TaskQueue& t) = delete;
 	TaskQueue& operator = (const TaskQueue& t) = delete;
 	static TaskQueue* getInstance()
-	{	//¶àÏß³ÌÊ±£¬¿ÉÄÜ»ánew³ö¶à¸öÊµÀı£¬
-		//·½·¨Ò»£ºĞèÒª¼Ó»¥³âËø,Ğ§ÂÊÌ«µÍ£¬Ö»ÄÜÍ¬²½Ö´ĞĞ
-		//·½·¨¶ş£ºË«ÖØ¼ì²éËø¶¨ + Ô­×Ó±äÁ¿£¨·ÀÖ¹µ×²ãÖ´ĞĞÊ±Ë³Ğò´òÂÒµ¼ÖÂÏß³ÌÖ±½ÓÊ¹ÓÃÎ´³õÊ¼»¯µÄÄÚ´æÇøÓò£©
-		//½«taskq´ÓÔ­×Ó±äÁ¿ÖĞÈ¡³ö
+	{	//å¤šçº¿ç¨‹æ—¶ï¼Œå¯èƒ½ä¼šnewå‡ºå¤šä¸ªå®ä¾‹ï¼Œ
+		//æ–¹æ³•ä¸€ï¼šéœ€è¦åŠ äº’æ–¥é”,æ•ˆç‡å¤ªä½ï¼Œåªèƒ½åŒæ­¥æ‰§è¡Œ
+		//æ–¹æ³•äºŒï¼šåŒé‡æ£€æŸ¥é”å®š + åŸå­å˜é‡ï¼ˆé˜²æ­¢åº•å±‚æ‰§è¡Œæ—¶é¡ºåºæ‰“ä¹±å¯¼è‡´çº¿ç¨‹ç›´æ¥ä½¿ç”¨æœªåˆå§‹åŒ–çš„å†…å­˜åŒºåŸŸï¼‰
+		//å°†taskqä»åŸå­å˜é‡ä¸­å–å‡º
 		TaskQueue* task = m_taskQ.load();
 		if (task == nullptr)
 		{
 			m_mutex.lock();
-			TaskQueue* task = m_taskQ.load();//·ÀÖ¹ÆäËüÏß³ÌÒÑ¾­Íê³Énew²Ù×÷
+			TaskQueue* task = m_taskQ.load();//é˜²æ­¢å…¶å®ƒçº¿ç¨‹å·²ç»å®Œæˆnewæ“ä½œ
 			if (task == nullptr)
 			{
-				task = new TaskQueue;//µ÷ÓÃº¯ÊıµÄÊ±ºòÔÙ´´½¨ÊµÀı£¬½ÚÊ¡¿Õ¼ä
-				m_taskQ.store(task);//±£´æµ½Ô­×Ó±äÁ¿ÖĞ
+				task = new TaskQueue;//è°ƒç”¨å‡½æ•°çš„æ—¶å€™å†åˆ›å»ºå®ä¾‹ï¼ŒèŠ‚çœç©ºé—´
+				m_taskQ.store(task);//ä¿å­˜åˆ°åŸå­å˜é‡ä¸­
 			}
 			m_mutex.unlock();
 		}
@@ -73,29 +72,29 @@ public:
 	}
 	void print()
 	{
-		cout << "µ¥Àı¶ÔÏóµÄ³ÉÔ±º¯Êı" << endl;
+		cout << "å•ä¾‹å¯¹è±¡çš„æˆå‘˜å‡½æ•°" << endl;
 	}
 
 private:
-	//2.½«¿ÉÒÔ²úÉú¶à¸öÊµÀıµÄ¹¹Ôìº¯ÊıÈ¨ÏŞÉèÎªË½ÓĞ
-	TaskQueue() = default;//default¾ÍÊÇÉèÖÃÎªÄ¬ÈÏĞĞÎª
+	//2.å°†å¯ä»¥äº§ç”Ÿå¤šä¸ªå®ä¾‹çš„æ„é€ å‡½æ•°æƒé™è®¾ä¸ºç§æœ‰
+	TaskQueue() = default;//defaultå°±æ˜¯è®¾ç½®ä¸ºé»˜è®¤è¡Œä¸º
 	//TaskQueue(const TaskQueue& t) = default;
 	//TaskQueue& operator = (const TaskQueue& t) = default;
-	//Ö»ÄÜÍ¨¹ıÀàÃû·ÃÎÊ¾²Ì¬ÊôĞÔ»ò·½·¨
-	//static TaskQueue* m_taskQ;//¾²Ì¬±äÁ¿£¬Î¨Ò»µÄ£¬ÊôÓÚÀà
+	//åªèƒ½é€šè¿‡ç±»åè®¿é—®é™æ€å±æ€§æˆ–æ–¹æ³•
+	//static TaskQueue* m_taskQ;//é™æ€å˜é‡ï¼Œå”¯ä¸€çš„ï¼Œå±äºç±»
 	static mutex m_mutex;
-	static atomic<TaskQueue*> m_taskQ;//Ê¹ÓÃatomic½«Ö¸Õë·Åµ½Ô­×Ó±äÁ¿Àï
+	static atomic<TaskQueue*> m_taskQ;//ä½¿ç”¨atomicå°†æŒ‡é’ˆæ”¾åˆ°åŸå­å˜é‡é‡Œ
 };
-//¶Ôµ¥ÀıµÄ¶ÔÏó½øĞĞ³õÊ¼»¯
+//å¯¹å•ä¾‹çš„å¯¹è±¡è¿›è¡Œåˆå§‹åŒ–
 //TaskQueue* TaskQueue::m_taskQ = nullptr;
 atomic<TaskQueue*> TaskQueue::m_taskQ;
-mutex TaskQueue::m_mutex;//ĞèÒªÔÚÍâÃæÉùÃ÷(ÎŞĞè³õÊ¼»¯£©
+mutex TaskQueue::m_mutex;//éœ€è¦åœ¨å¤–é¢å£°æ˜(æ— éœ€åˆå§‹åŒ–ï¼‰
 #endif
 
 #if 0
-//ÀÁººÄ£Ê½
-//Ê¹ÓÃ¾²Ì¬µÄ¾Ö²¿¶ÔÏó½â¾öÏß³Ì°²È«ÎÊÌâ£¨±àÒëÆ÷±ØĞëÖ§³ÖC++11£©
-//Èç¹ûÖ¸ÁîÂß¼­½øÈëÒ»¸öÎ´±»³õÊ¼»¯µÄÉùÃ÷±äÁ¿£¬ËùÓĞ²¢·¢Ö´ĞĞÓ¦µ±µÈ´ı¸Ã±äÁ¿Íê³É³õÊ¼»¯¡£
+//æ‡’æ±‰æ¨¡å¼
+//ä½¿ç”¨é™æ€çš„å±€éƒ¨å¯¹è±¡è§£å†³çº¿ç¨‹å®‰å…¨é—®é¢˜ï¼ˆç¼–è¯‘å™¨å¿…é¡»æ”¯æŒC++11ï¼‰
+//å¦‚æœæŒ‡ä»¤é€»è¾‘è¿›å…¥ä¸€ä¸ªæœªè¢«åˆå§‹åŒ–çš„å£°æ˜å˜é‡ï¼Œæ‰€æœ‰å¹¶å‘æ‰§è¡Œåº”å½“ç­‰å¾…è¯¥å˜é‡å®Œæˆåˆå§‹åŒ–ã€‚
 class TaskQueue
 {
 public:
@@ -108,11 +107,11 @@ public:
 	}
 	void print()
 	{
-		cout << "µ¥Àı¶ÔÏóµÄ³ÉÔ±º¯Êı" << endl;
+		cout << "å•ä¾‹å¯¹è±¡çš„æˆå‘˜å‡½æ•°" << endl;
 	}
 
 private:
-	TaskQueue() = default;//default¾ÍÊÇÉèÖÃÎªÄ¬ÈÏĞĞÎª
+	TaskQueue() = default;//defaultå°±æ˜¯è®¾ç½®ä¸ºé»˜è®¤è¡Œä¸º
 };
 #endif
 
@@ -129,23 +128,23 @@ public:
 	}
 	void print()
 	{
-		cout << "µ¥Àı¶ÔÏóµÄ³ÉÔ±º¯Êı" << endl;
+		cout << "å•ä¾‹å¯¹è±¡çš„æˆå‘˜å‡½æ•°" << endl;
 	}
-	//ÅĞ¶ÏÈÎÎñ¶ÓÁĞÊÇ·ñÎª¿Õ
+	//åˆ¤æ–­ä»»åŠ¡é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
 	bool isEmpty()
 	{
-		//Ê¹ÓÃlock_guard¼ÓËø
+		//ä½¿ç”¨lock_guardåŠ é”
 		lock_guard<mutex> locker(m_mutex);
 		bool flag = m_data.empty();
 		return flag;
 	}
-	//Ìí¼ÓÈÎÎñ
+	//æ·»åŠ ä»»åŠ¡
 	void addTask(int node)
 	{
 		lock_guard<mutex> locker(m_mutex);
 		m_data.push(node);
 	}
-	//É¾³ıÈÎÎñ
+	//åˆ é™¤ä»»åŠ¡
 	bool popTask()
 	{
 		lock_guard<mutex> locker(m_mutex);
@@ -156,7 +155,7 @@ public:
 		m_data.pop();
 		return true;
 	}
-	//È¡³öÒ»¸öÈÎÎñ
+	//å–å‡ºä¸€ä¸ªä»»åŠ¡
 	int takeTask()
 	{
 		lock_guard<mutex> locker(m_mutex);
@@ -167,11 +166,11 @@ public:
 private:
 	TaskQueue() = default;
 	static TaskQueue* m_taskQ;
-	//¶¨ÒåÈÎÎñ¶ÓÁĞ
+	//å®šä¹‰ä»»åŠ¡é˜Ÿåˆ—
 	queue<int> m_data;
 	mutex m_mutex;
 };
-//¶Ôµ¥ÀıµÄ¶ÔÏó½øĞĞ³õÊ¼»¯
+//å¯¹å•ä¾‹çš„å¯¹è±¡è¿›è¡Œåˆå§‹åŒ–
 TaskQueue* TaskQueue::m_taskQ = new TaskQueue;
 #endif
 
@@ -182,7 +181,7 @@ int main1()
 
 	TaskQueue* taskQ = TaskQueue::getInstance();
 
-	//Éú²úÕß
+	//ç”Ÿäº§è€…
 	thread t1([=]() {
 		for (int i = 0; i < 10; i++)
 		{
@@ -194,7 +193,7 @@ int main1()
 	});
 
 
-	//Ïû·ÑÕß
+	//æ¶ˆè´¹è€…
 	thread t2([=]() {
 		this_thread::sleep_for(chrono::milliseconds(500));
 		while(!taskQ->isEmpty())
@@ -207,7 +206,7 @@ int main1()
 		}
 	});
 
-	//×èÈûÖ÷Ïß³Ì
+	//é˜»å¡ä¸»çº¿ç¨‹
 	t1.join();
 	t2.join();
 

@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-// ´¬Ìå
+// èˆ¹ä½“
 class ShipBody
 {
 public:
@@ -13,7 +13,7 @@ class WoodBody : public ShipBody
 public:
     string getShipBody() override
     {
-        return string("ÓÃ<Ä¾²Ä>ÖÆ×÷ÂÖ´¬´¬Ìå...");
+        return string("ç”¨<æœ¨æ>åˆ¶ä½œè½®èˆ¹èˆ¹ä½“...");
     }
 };
 
@@ -22,7 +22,7 @@ class IronBody : public ShipBody
 public:
     string getShipBody() override
     {
-        return string("ÓÃ<¸ÖÌú>ÖÆ×÷ÂÖ´¬´¬Ìå...");
+        return string("ç”¨<é’¢é“>åˆ¶ä½œè½®èˆ¹èˆ¹ä½“...");
     }
 };
 
@@ -31,11 +31,11 @@ class MetalBody : public ShipBody
 public:
     string getShipBody() override
     {
-        return string("ÓÃ<ºÏ½ğ>ÖÆ×÷ÂÖ´¬´¬Ìå...");
+        return string("ç”¨<åˆé‡‘>åˆ¶ä½œè½®èˆ¹èˆ¹ä½“...");
     }
 };
 
-// ¶¯Á¦
+// åŠ¨åŠ›
 class Engine
 {
 public:
@@ -48,7 +48,7 @@ class Human : public Engine
 public:
     string getEngine() override
     {
-        return string("Ê¹ÓÃ<ÈËÁ¦Çı¶¯>...");
+        return string("ä½¿ç”¨<äººåŠ›é©±åŠ¨>...");
     }
 };
 
@@ -57,7 +57,7 @@ class Diesel : public Engine
 public:
     string getEngine() override
     {
-        return string("Ê¹ÓÃ<ÄÚÈ¼»úÇı¶¯>...");
+        return string("ä½¿ç”¨<å†…ç‡ƒæœºé©±åŠ¨>...");
     }
 };
 
@@ -66,11 +66,11 @@ class Nuclear : public Engine
 public:
     string getEngine() override
     {
-        return string("Ê¹ÓÃ<ºËÄÜÇı¶¯>...");
+        return string("ä½¿ç”¨<æ ¸èƒ½é©±åŠ¨>...");
     }
 };
 
-// ÎäÆ÷
+// æ­¦å™¨
 class Weapon
 {
 public:
@@ -83,7 +83,7 @@ class Gun : public Weapon
 public:
     string getWeapon() override
     {
-        return string("Åä±¸µÄÎäÆ÷ÊÇ<Ç¹>");
+        return string("é…å¤‡çš„æ­¦å™¨æ˜¯<æª>");
     }
 };
 
@@ -92,7 +92,7 @@ class Cannon : public Weapon
 public:
     string getWeapon() override
     {
-        return string("Åä±¸µÄÎäÆ÷ÊÇ<×Ô¶¯»ú¹ØÅÚ>");
+        return string("é…å¤‡çš„æ­¦å™¨æ˜¯<è‡ªåŠ¨æœºå…³ç‚®>");
     }
 };
 
@@ -101,11 +101,11 @@ class Laser : public Weapon
 public:
     string getWeapon() override
     {
-        return string("Åä±¸µÄÎäÆ÷ÊÇ<¼¤¹â>");
+        return string("é…å¤‡çš„æ­¦å™¨æ˜¯<æ¿€å…‰>");
     }
 };
 
-// ÂÖ´¬Àà
+// è½®èˆ¹ç±»
 class Ship
 {
 public:
@@ -118,7 +118,7 @@ public:
         string info = m_body->getShipBody() + m_weapon->getWeapon() + m_engine->getEngine();
         return info;
     }
-    ~Ship()//×éºÏ¹ØÏµ£¬ÕûÌåÎö¹¹ÆäËü²¿·ÖÈ«²¿Îö¹¹
+    ~Ship()//ç»„åˆå…³ç³»ï¼Œæ•´ä½“ææ„å…¶å®ƒéƒ¨åˆ†å…¨éƒ¨ææ„
     {
         delete m_body;
         delete m_engine;
@@ -130,7 +130,7 @@ private:
     Engine* m_engine = nullptr;
 };
 
-// ¹¤³§Àà
+// å·¥å‚ç±»
 class AbstractFactory
 {
 public:
@@ -144,7 +144,7 @@ public:
     Ship* createShip() override
     {
         Ship* ship = new Ship(new WoodBody, new Gun, new Human);
-        cout << "<»ù´¡ĞÍ>Õ½´¬Éú²úÍê±Ï, ¿ÉÒÔÏÂË®À²..." << endl;
+        cout << "<åŸºç¡€å‹>æˆ˜èˆ¹ç”Ÿäº§å®Œæ¯•, å¯ä»¥ä¸‹æ°´å•¦..." << endl;
         return ship;
     }
 };
@@ -155,7 +155,7 @@ public:
     Ship* createShip() override
     {
         Ship* ship = new Ship(new IronBody, new Cannon, new Diesel);
-        cout << "<±ê×¼ĞÍ>Õ½´¬Éú²úÍê±Ï, ¿ÉÒÔÏÂË®À²..." << endl;
+        cout << "<æ ‡å‡†å‹>æˆ˜èˆ¹ç”Ÿäº§å®Œæ¯•, å¯ä»¥ä¸‹æ°´å•¦..." << endl;
         return ship;
     }
 };
@@ -166,7 +166,7 @@ public:
     Ship* createShip() override
     {
         Ship* ship = new Ship(new MetalBody, new Laser, new Nuclear);
-        cout << "<Æì½¢ĞÍ>Õ½´¬Éú²úÍê±Ï, ¿ÉÒÔÏÂË®À²..." << endl;
+        cout << "<æ——èˆ°å‹>æˆ˜èˆ¹ç”Ÿäº§å®Œæ¯•, å¯ä»¥ä¸‹æ°´å•¦..." << endl;
         return ship;
     }
 };

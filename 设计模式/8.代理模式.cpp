@@ -1,24 +1,24 @@
 #include<iostream>
 using namespace std;
 
-//´úÀíÀàµÄ»ùÀà
+//ä»£ç†ç±»çš„åŸºç±»
 class Communication
 {
 public:
 	virtual void communicate() = 0;
 	virtual ~Communication(){}
 };
-//×ÓÀà
+//å­ç±»
 class Speaker : public Communication
 {
 public:
 	void communicate()
 	{
-		cout << "¿ªÊ¼Ëµ»°" << endl;
+		cout << "å¼€å§‹è¯´è¯" << endl;
 	}
 };
 
-//´úÀíÀà
+//ä»£ç†ç±»
 class DenDenMuShi : public Communication
 {
 public:
@@ -39,7 +39,7 @@ public:
 	{
 		if (m_isStart)
 		{
-			cout << "µç»°³æ¿ªÊ¼ÊµÊ±Ä£·ÂÍ¨»°Õß" << endl;
+			cout << "ç”µè¯è™«å¼€å§‹å®æ—¶æ¨¡ä»¿é€šè¯è€…" << endl;
 			m_speaker->communicate();
 
 		}
@@ -52,18 +52,18 @@ public:
 		}
 	}
 private:
-	Speaker* m_speaker = nullptr;//±»´úÀíÈË
-	bool m_isStart = false;//¿ª¹Ø¿ØÖÆ´úÀíÈ¨ÏŞ
+	Speaker* m_speaker = nullptr;//è¢«ä»£ç†äºº
+	bool m_isStart = false;//å¼€å…³æ§åˆ¶ä»£ç†æƒé™
 };
 
 int main8()
 {
 
-	//Ö±½Ó½»Á÷
+	//ç›´æ¥äº¤æµ
 	Communication* speaker = new Speaker;
 	speaker->communicate();
 	delete speaker;
-	//Í¨¹ıµç»°³æ½»Á÷
+	//é€šè¿‡ç”µè¯è™«äº¤æµ
 	cout << "========================" << endl;
 	speaker = new DenDenMuShi;
 	speaker->communicate();

@@ -2,7 +2,7 @@
 using namespace std;
 
 
-//³éÏóµÄ²ßÂÔÀà
+//æŠ½è±¡çš„ç­–ç•¥ç±»
 class AbstractStrategy
 {
 public:
@@ -10,92 +10,92 @@ public:
 	virtual ~AbstractStrategy(){}
 };
 
-// Ò»µµ
+// ä¸€æ¡£
 class YiDang : public AbstractStrategy
 {
 public:
     void fight(bool isfar = false) override
     {
-        cout << "*** ÏÖÔÚÊ¹ÓÃµÄÊÇÒ»µµ: ";
+        cout << "*** çŽ°åœ¨ä½¿ç”¨çš„æ˜¯ä¸€æ¡£: ";
         if (isfar)
         {
-            cout << "Ïð½º»ú¹ØÇ¹" << endl;
+            cout << "æ©¡èƒ¶æœºå…³æžª" << endl;
         }
         else
         {
-            cout << "Ïð½º¡¤¹¥³ÇÅÚ" << endl;
+            cout << "æ©¡èƒ¶Â·æ”»åŸŽç‚®" << endl;
         }
     }
 };
 
-// ¶þµ²
+// äºŒæŒ¡
 class ErDang : public AbstractStrategy
 {
 public:
     void fight(bool isfar = false) override
     {
-        cout << "*** ÇÐ»»³É¶þµ²: ";
+        cout << "*** åˆ‡æ¢æˆäºŒæŒ¡: ";
         if (isfar)
         {
-            cout << "Ïð½ºJet»ð¼ý" << endl;
+            cout << "æ©¡èƒ¶Jetç«ç®­" << endl;
         }
         else
         {
-            cout << "Ïð½ºJet¡¤ï¥ÂÒ´ò" << endl;
+            cout << "æ©¡èƒ¶JetÂ·é“³ä¹±æ‰“" << endl;
         }
     }
 };
 
-// Èýµ²
+// ä¸‰æŒ¡
 class SanDang : public AbstractStrategy
 {
 public:
     void fight(bool isfar = false) override
     {
-        cout << "*** ÇÐ»»³ÉÈýµ²: ";
+        cout << "*** åˆ‡æ¢æˆä¸‰æŒ¡: ";
         if (isfar)
         {
-            cout << "Ïð½º¾ÞÈË»ØÐýµ¯" << endl;
+            cout << "æ©¡èƒ¶å·¨äººå›žæ—‹å¼¹" << endl;
         }
         else
         {
-            cout << "Ïð½º¾ÞÈËÕ½¸«" << endl;
+            cout << "æ©¡èƒ¶å·¨äººæˆ˜æ–§" << endl;
         }
     }
 };
 
-// ËÄµ²
+// å››æŒ¡
 class SiDang : public AbstractStrategy
 {
 public:
     void fight(bool isfar = false) override
     {
-        cout << "*** ÇÐ»»³ÉËÄµ²: ";
+        cout << "*** åˆ‡æ¢æˆå››æŒ¡: ";
         if (isfar)
         {
-            cout << "Ïð½ºÊ¨×Ó»ð¼ýÅÚ" << endl;
+            cout << "æ©¡èƒ¶ç‹®å­ç«ç®­ç‚®" << endl;
         }
         else
         {
-            cout << "Ïð½ºÏ¬Å£Áñµ¯ÅÚ" << endl;
+            cout << "æ©¡èƒ¶çŠ€ç‰›æ¦´å¼¹ç‚®" << endl;
         }
     }
 };
 
-// Îåµµ
+// äº”æ¡£
 class WuDang : public AbstractStrategy
 {
 public:
     void fight(bool isfar = false) override
     {
-        cout << "*** ÇÐ»»³ÉÎåµ²: ±ä³ÉÄá¿¨ÐÎÌ¬¿ÉÒÔ°ÑÎïÌå±ä³ÉÏð½º, ²¢ÈÎÒâ¸Ä±äÎïÌåµÄÐÎÌ¬¶ÔÆä½øÐÐ¹¥»÷!!!" << endl;
+        cout << "*** åˆ‡æ¢æˆäº”æŒ¡: å˜æˆå°¼å¡å½¢æ€å¯ä»¥æŠŠç‰©ä½“å˜æˆæ©¡èƒ¶, å¹¶ä»»æ„æ”¹å˜ç‰©ä½“çš„å½¢æ€å¯¹å…¶è¿›è¡Œæ”»å‡»!!!" << endl;
     }
 };
 
-// ÄÑ¶È¼¶±ð
+// éš¾åº¦çº§åˆ«
 enum class Level :char { Easy, Normal, Hard, Experts, Professional };
 
-// Â··É
+// è·¯é£ž
 class Luffy
 {
 public:
@@ -139,15 +139,15 @@ private:
 int main9()
 {
     Luffy* luffy = new Luffy;
-    cout << "--- ÔÚÏã²¨µØÈºµºÓöµ½ÁËº£¾üÊ¿±ø: " << endl;
+    cout << "--- åœ¨é¦™æ³¢åœ°ç¾¤å²›é‡åˆ°äº†æµ·å†›å£«å…µ: " << endl;
     luffy->fight(Level::Easy);
-    cout << "--- ÔÚÄ§¹ÈÕòÓöµ½ÁË±´À­Ã×: " << endl;
+    cout << "--- åœ¨é­”è°·é•‡é‡åˆ°äº†è´æ‹‰ç±³: " << endl;
     luffy->fight(Level::Normal);
-    cout << "--- ÔÚË¾·¨µºÓöµ½ÁËÂÞ²¼¡¤Â·Ææ: " << endl;
+    cout << "--- åœ¨å¸æ³•å²›é‡åˆ°äº†ç½—å¸ƒÂ·è·¯å¥‡: " << endl;
     luffy->fight(Level::Hard);
-    cout << "--- ÔÚµÂÀ×Ë¹ÂÞÈøÓöµ½ÁË¶à¸¥ÀÊÃ÷¸ç: " << endl;
+    cout << "--- åœ¨å¾·é›·æ–¯ç½—è¨é‡åˆ°äº†å¤šå¼—æœ—æ˜Žå“¥: " << endl;
     luffy->fight(Level::Experts);
-    cout << "--- ÔÚ¹íµºÓöµ½ÁË¿­¶à: " << endl;
+    cout << "--- åœ¨é¬¼å²›é‡åˆ°äº†å‡¯å¤š: " << endl;
     luffy->fight(Level::Professional);
 
     delete luffy;

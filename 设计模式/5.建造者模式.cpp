@@ -4,14 +4,14 @@
 using namespace std;
 
 /*
-	1.¶¨Òå´¬Ïà¹ØµÄÀà
-	2.¶¨Òå½¨ÔìÕßÏà¹ØµÄÀà
-	3.¶¨Òå¹ÜÀíÕß-¡·½¨Ôì²»Í¬¹æ¸ñµÄ´©
-	4.±àÐ´²âÊÔ´úÂë
+	1.å®šä¹‰èˆ¹ç›¸å…³çš„ç±»
+	2.å®šä¹‰å»ºé€ è€…ç›¸å…³çš„ç±»
+	3.å®šä¹‰ç®¡ç†è€…-ã€‹å»ºé€ ä¸åŒè§„æ ¼çš„ç©¿
+	4.ç¼–å†™æµ‹è¯•ä»£ç 
 
 */
-//¶¨ÒåÉ£ÄáºÅ
-//´æ´¢ÒÑ¾­½¨ÔìºÃµÄÁã²¿¼þ
+//å®šä¹‰æ¡‘å°¼å·
+//å­˜å‚¨å·²ç»å»ºé€ å¥½çš„é›¶éƒ¨ä»¶
 class SunnyShip
 {
 public:
@@ -29,7 +29,7 @@ public:
 private:
 	vector<string> m_parts;
 };
-//¶¨ÒåÃ·ÀûºÅ
+//å®šä¹‰æ¢…åˆ©å·
 class MerryShip
 {
 public:
@@ -49,7 +49,7 @@ private:
 };
 
 
-//¶¨ÒåÉú³ÉÆ÷Àà
+//å®šä¹‰ç”Ÿæˆå™¨ç±»
 class ShipBuilder
 {
 public:
@@ -82,19 +82,19 @@ public:
 	}
 	void buildBody() override
 	{
-		m_sunny->addParts("´¬ÌåÊÇÉñÊ÷ÑÇµ±");
+		m_sunny->addParts("èˆ¹ä½“æ˜¯ç¥žæ ‘äºšå½“");
 	};
 	void buildWeapon()override
 	{
-		m_sunny->addParts("Ê¨ºðÅÚ");
+		m_sunny->addParts("ç‹®å¼ç‚®");
 	};
 	void buildEngine()override
 	{
-		m_sunny->addParts("¿ÉÀÖÇý¶¯µÄÄÚÈ¼»ú");
+		m_sunny->addParts("å¯ä¹é©±åŠ¨çš„å†…ç‡ƒæœº");
 	};
 	void buildInterior()override
 	{
-		m_sunny->addParts("·Ç³£ºÀ»ªµÄÄÚÊÒ×°ÐÞ");
+		m_sunny->addParts("éžå¸¸è±ªåŽçš„å†…å®¤è£…ä¿®");
 	};
 	~SunnyBuilder() {
 		if (m_sunny)
@@ -127,19 +127,19 @@ public:
 	}
 	void buildBody() override
 	{
-		m_merry->assemble("´¬ÌåÊÇÓÅÖÊÄ¾²Ä", "´¬Ìå");
+		m_merry->assemble("èˆ¹ä½“æ˜¯ä¼˜è´¨æœ¨æ", "èˆ¹ä½“");
 	};
 	void buildWeapon()override
 	{
-		m_merry->assemble("ÆÕÍ¨µÄËÄÃÅ´óÅÚ", "ÎäÆ÷");
+		m_merry->assemble("æ™®é€šçš„å››é—¨å¤§ç‚®", "æ­¦å™¨");
 	};
 	void buildEngine()override
 	{
-		m_merry->assemble("ÉÕÃºµÄÕôÆû»ú", "¶¯Á¦ÏµÍ³");
+		m_merry->assemble("çƒ§ç…¤çš„è’¸æ±½æœº", "åŠ¨åŠ›ç³»ç»Ÿ");
 	};
 	void buildInterior()override
 	{
-		m_merry->assemble("·Ç³£ºÀ»ªµÄÄÚÊÒ×°ÐÞ", "ÄÚÊÒ");
+		m_merry->assemble("éžå¸¸è±ªåŽçš„å†…å®¤è£…ä¿®", "å†…å®¤");
 	};
 	~MerryBuilder() {
 		if (m_merry)
@@ -153,7 +153,7 @@ private:
 
 
 
-//¶¨Òå¹ÜÀíÕß
+//å®šä¹‰ç®¡ç†è€…
 class Director
 {
 public:
@@ -162,19 +162,19 @@ public:
 		m_builder = builder;
 	}
 
-	//¼òÔ¼ÐÍ
+	//ç®€çº¦åž‹
 	void buildSimpleShip()
 	{
 		m_builder->buildBody();
 		m_builder->buildEngine();
 	}
-	//±ê×¼ÐÍ
+	//æ ‡å‡†åž‹
 	void buildStandardShip()
 	{
 		buildSimpleShip();
 		m_builder->buildWeapon();
 	}
-	//ºÀ»ªÐÍ
+	//è±ªåŽåž‹
 	void buildRegalShip()
 	{
 		buildStandardShip();
@@ -185,26 +185,26 @@ private:
 	ShipBuilder* m_builder = nullptr;
 };
 
-//²âÊÔ´úÂë
-//½¨ÔìÉ£ÄáºÅ
+//æµ‹è¯•ä»£ç 
+//å»ºé€ æ¡‘å°¼å·
 void buildSunnyShip()
 {
 	Director* director = new Director;
 	SunnyBuilder* builder = new SunnyBuilder;
-	//¼òÔ¼ÐÍ
+	//ç®€çº¦åž‹
 	director->setBuilder(builder);
 	director->buildSimpleShip();
 	SunnyShip* ship = builder->getSunnyShip();
 	ship->showParts();
 	delete ship;
-	//±ê×¼ÐÍ
+	//æ ‡å‡†åž‹
 	builder->reset();
 	director->setBuilder(builder);
 	director->buildStandardShip();
 	ship = builder->getSunnyShip();
 	ship->showParts();
 	delete ship;
-	//ºÀ»ªÐÍ
+	//è±ªåŽåž‹
 	builder->reset();
 	director->setBuilder(builder);
 	director->buildRegalShip();

@@ -9,49 +9,49 @@ public:
     virtual ~AbstractSmile() {}
 };
 
-// ÈËÔì¶ñÄ§¹ûÊµ¡¤ ÃàÑòĞÎÌ¬
+// äººé€ æ¶é­”æœå®Â· ç»µç¾Šå½¢æ€
 class SheepSmile : public AbstractSmile
 {
 public:
     void transform()
     {
-        cout << "±ä³ÉÈËÊŞ -- É½ÑòÈËĞÎÌ¬..." << endl;
+        cout << "å˜æˆäººå…½ -- å±±ç¾Šäººå½¢æ€..." << endl;
     }
     void ability()
     {
-        cout << "½«ÊÖ±Û±ä³ÉÃàÑò½ÇµÄÕĞÊ½ -- ¾ŞÑò½Ç" << endl;
+        cout << "å°†æ‰‹è‡‚å˜æˆç»µç¾Šè§’çš„æ‹›å¼ -- å·¨ç¾Šè§’" << endl;
     }
 };
 
-// ÈËÔì¶ñÄ§¹ûÊµ¡¤ Ê¨×ÓĞÎÌ¬
+// äººé€ æ¶é­”æœå®Â· ç‹®å­å½¢æ€
 class LionSmile : public AbstractSmile
 {
 public:
     void transform()
     {
-        cout << "±ä³ÉÈËÊŞ -- Ê¨×ÓÈËĞÎÌ¬..." << endl;
+        cout << "å˜æˆäººå…½ -- ç‹®å­äººå½¢æ€..." << endl;
     }
     void ability()
     {
-        cout << "»ğ¶İ¡¤ ºÀ»ğÇòÖ®Êõ..." << endl;
+        cout << "ç«éÂ· è±ªç«çƒä¹‹æœ¯..." << endl;
     }
 };
 
-// ÈËÔì¶ñÄ§¹ûÊµ¡¤ òùòğĞÎÌ¬
+// äººé€ æ¶é­”æœå®Â· è™è å½¢æ€
 class BatSmile : public AbstractSmile
 {
 public:
     void transform()
     {
-        cout << "±ä³ÉÈËÊŞ -- òùòğÈËĞÎÌ¬..." << endl;
+        cout << "å˜æˆäººå…½ -- è™è äººå½¢æ€..." << endl;
     }
     void ability()
     {
-        cout << "ÉùÄÉÒı¼ıÖ®Íò½£¹é×Ú..." << endl;
+        cout << "å£°çº³å¼•ç®­ä¹‹ä¸‡å‰‘å½’å®—..." << endl;
     }
 };
 
-//¶¨Òå¹¤³§Àà--¸¸Àà
+//å®šä¹‰å·¥å‚ç±»--çˆ¶ç±»
 
 class AbstractFactory
 {
@@ -69,7 +69,7 @@ public:
     }
     ~SheepFactory()
     {
-        cout << "ÊÍ·Å SheepFactory ÀàÏà¹ØµÄÄÚ´æ×ÊÔ´" << endl;
+        cout << "é‡Šæ”¾ SheepFactory ç±»ç›¸å…³çš„å†…å­˜èµ„æº" << endl;
     }
 };
 
@@ -82,7 +82,7 @@ public:
     }
     ~LionFactory()
     {
-        cout << "ÊÍ·Å LionFactory ÀàÏà¹ØµÄÄÚ´æ×ÊÔ´" << endl;
+        cout << "é‡Šæ”¾ LionFactory ç±»ç›¸å…³çš„å†…å­˜èµ„æº" << endl;
     }
 
 };
@@ -96,7 +96,7 @@ public:
     }
     ~BatFactory()
     {
-        cout << "ÊÍ·Å BatFactory ÀàÏà¹ØµÄÄÚ´æ×ÊÔ´" << endl;
+        cout << "é‡Šæ”¾ BatFactory ç±»ç›¸å…³çš„å†…å­˜èµ„æº" << endl;
     }
 };
 

@@ -3,8 +3,8 @@ using namespace std;
 
 
 #if 0
-//ÊÊÅäÆ÷ÀàºÍÐÜÃ¨ÀàÊÇ¹ØÁª¹ØÏµ
-//Íâ¹úÈË
+//é€‚é…å™¨ç±»å’Œç†ŠçŒ«ç±»æ˜¯å…³è”å…³ç³»
+//å¤–å›½äºº
 class Foreigner
 {
 public:
@@ -21,7 +21,7 @@ class American : public Foreigner
 public:
 	string confession() override
 	{
-		return "ÎÒÓÐ×ï";
+		return "æˆ‘æœ‰ç½ª";
 	}
 };
 class French : public Foreigner
@@ -29,7 +29,7 @@ class French : public Foreigner
 public:
 	string confession() override
 	{
-		return "ÎÒÓÐ×ï";
+		return "æˆ‘æœ‰ç½ª";
 	}
 };
 
@@ -42,12 +42,12 @@ public:
 	}
 	string sendMessage()
 	{
-		return string("²»¿ÉÔ­ÁÂ");
+		return string("ä¸å¯åŽŸè°…");
 	}
 };
 
-//ÊÊÅäÆ÷Àà
-//ÊÊÅäÆ÷Àà»ùÀà
+//é€‚é…å™¨ç±»
+//é€‚é…å™¨ç±»åŸºç±»
 class AbstractChopper
 {
 public:
@@ -63,36 +63,36 @@ protected:
 class EnglishCopper :public AbstractChopper
 {
 public:
-	using AbstractChopper::AbstractChopper;//¼Ì³ÐËùÓÐµÄ¹¹Ôìº¯Êý
+	using AbstractChopper::AbstractChopper;//ç»§æ‰¿æ‰€æœ‰çš„æž„é€ å‡½æ•°
 	void translateToPanda()
 	{
 		string msg = m_foreigner->confession();
-		//½âÎöÓïÑÔ£¬½«Êý¾Ý´«µÝ¸øÐÜÃ¨
-		m_panda.recvMessage("ÃÀ¹úÈËËµ£º" + msg);
+		//è§£æžè¯­è¨€ï¼Œå°†æ•°æ®ä¼ é€’ç»™ç†ŠçŒ«
+		m_panda.recvMessage("ç¾Žå›½äººè¯´ï¼š" + msg);
 	}
 	void translateToHuman()
 	{
 		string msg = m_panda.sendMessage();
-		//½«ÐÜÃ¨ÓïÑÔ×ª»»ÎªÓ¢Óï£¬´«µÝ¸øÍâ¹úÈË
-		m_foreigner->setResult("ÃÀ¹úÈË" + msg);
+		//å°†ç†ŠçŒ«è¯­è¨€è½¬æ¢ä¸ºè‹±è¯­ï¼Œä¼ é€’ç»™å¤–å›½äºº
+		m_foreigner->setResult("ç¾Žå›½äºº" + msg);
 	}
 };
 
 class FrenchCopper :public AbstractChopper
 {
 public:
-	using AbstractChopper::AbstractChopper;//¼Ì³ÐËùÓÐµÄ¹¹Ôìº¯Êý
+	using AbstractChopper::AbstractChopper;//ç»§æ‰¿æ‰€æœ‰çš„æž„é€ å‡½æ•°
 	void translateToPanda()
 	{
 		string msg = m_foreigner->confession();
-		//½âÎöÓïÑÔ£¬½«Êý¾Ý´«µÝ¸øÐÜÃ¨
-		m_panda.recvMessage("·¨¹úÈËËµ£º" + msg);
+		//è§£æžè¯­è¨€ï¼Œå°†æ•°æ®ä¼ é€’ç»™ç†ŠçŒ«
+		m_panda.recvMessage("æ³•å›½äººè¯´ï¼š" + msg);
 	}
 	void translateToHuman()
 	{
 		string msg = m_panda.sendMessage();
-		//½«ÐÜÃ¨ÓïÑÔ×ª»»ÎªÓ¢Óï£¬´«µÝ¸øÍâ¹úÈË
-		m_foreigner->setResult("·¨¹úÈË" + msg);
+		//å°†ç†ŠçŒ«è¯­è¨€è½¬æ¢ä¸ºè‹±è¯­ï¼Œä¼ é€’ç»™å¤–å›½äºº
+		m_foreigner->setResult("æ³•å›½äºº" + msg);
 	}
 };
 
@@ -101,8 +101,8 @@ public:
 
 
 #if 1
-//ÊÊÅäÆ÷ÀàºÍÐÜÃ¨ÀàÊÇ¼Ì³Ð¹ØÏµ
-//Íâ¹úÈË
+//é€‚é…å™¨ç±»å’Œç†ŠçŒ«ç±»æ˜¯ç»§æ‰¿å…³ç³»
+//å¤–å›½äºº
 class Foreigner
 {
 public:
@@ -119,7 +119,7 @@ class American : public Foreigner
 public:
 	string confession() override
 	{
-		return "ÎÒÓÐ×ï";
+		return "æˆ‘æœ‰ç½ª";
 	}
 };
 class French : public Foreigner
@@ -127,7 +127,7 @@ class French : public Foreigner
 public:
 	string confession() override
 	{
-		return "ÎÒÓÐ×ï";
+		return "æˆ‘æœ‰ç½ª";
 	}
 };
 
@@ -140,12 +140,12 @@ public:
 	}
 	string sendMessage()
 	{
-		return string("²»¿ÉÔ­ÁÂ");
+		return string("ä¸å¯åŽŸè°…");
 	}
 };
 
-//ÊÊÅäÆ÷Àà
-//ÊÊÅäÆ÷Àà»ùÀà
+//é€‚é…å™¨ç±»
+//é€‚é…å™¨ç±»åŸºç±»
 class AbstractChopper : public Panda
 {
 public:
@@ -160,36 +160,36 @@ protected:
 class EnglishCopper :public AbstractChopper
 {
 public:
-	using AbstractChopper::AbstractChopper;//¼Ì³ÐËùÓÐµÄ¹¹Ôìº¯Êý
+	using AbstractChopper::AbstractChopper;//ç»§æ‰¿æ‰€æœ‰çš„æž„é€ å‡½æ•°
 	void translateToPanda()
 	{
 		string msg = m_foreigner->confession();
-		//½âÎöÓïÑÔ£¬½«Êý¾Ý´«µÝ¸øÐÜÃ¨
-		recvMessage("ÃÀ¹úÈËËµ£º" + msg);
+		//è§£æžè¯­è¨€ï¼Œå°†æ•°æ®ä¼ é€’ç»™ç†ŠçŒ«
+		recvMessage("ç¾Žå›½äººè¯´ï¼š" + msg);
 	}
 	void translateToHuman()
 	{
 		string msg = sendMessage();
-		//½«ÐÜÃ¨ÓïÑÔ×ª»»ÎªÓ¢Óï£¬´«µÝ¸øÍâ¹úÈË
-		m_foreigner->setResult("ÃÀ¹úÈË" + msg);
+		//å°†ç†ŠçŒ«è¯­è¨€è½¬æ¢ä¸ºè‹±è¯­ï¼Œä¼ é€’ç»™å¤–å›½äºº
+		m_foreigner->setResult("ç¾Žå›½äºº" + msg);
 	}
 };
 
 class FrenchCopper :public AbstractChopper
 {
 public:
-	using AbstractChopper::AbstractChopper;//¼Ì³ÐËùÓÐµÄ¹¹Ôìº¯Êý
+	using AbstractChopper::AbstractChopper;//ç»§æ‰¿æ‰€æœ‰çš„æž„é€ å‡½æ•°
 	void translateToPanda()
 	{
 		string msg = m_foreigner->confession();
-		//½âÎöÓïÑÔ£¬½«Êý¾Ý´«µÝ¸øÐÜÃ¨
-		recvMessage("·¨¹úÈËËµ£º" + msg);
+		//è§£æžè¯­è¨€ï¼Œå°†æ•°æ®ä¼ é€’ç»™ç†ŠçŒ«
+		recvMessage("æ³•å›½äººè¯´ï¼š" + msg);
 	}
 	void translateToHuman()
 	{
 		string msg = sendMessage();
-		//½«ÐÜÃ¨ÓïÑÔ×ª»»ÎªÓ¢Óï£¬´«µÝ¸øÍâ¹úÈË
-		m_foreigner->setResult("·¨¹úÈË" + msg);
+		//å°†ç†ŠçŒ«è¯­è¨€è½¬æ¢ä¸ºè‹±è¯­ï¼Œä¼ é€’ç»™å¤–å›½äºº
+		m_foreigner->setResult("æ³•å›½äºº" + msg);
 	}
 };
 
